@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import React from 'react';
+import React, {Fragment} from 'react';
 import {
     Image,
     Platform,
@@ -31,6 +31,22 @@ class Home extends React.Component {
         this.animation_switch = 0;
         this.animatedOpacity = new Animated.Value(0);
         this.animatedSpin = new Animated.Value(0);
+    }
+
+    renderCounter = () => {
+        const { counter } = this.state;
+        return <Fragment>
+            <TouchableOpacity onPress={()=>{
+                this.setState({counter:counter-1})
+            }}>
+                <Text>{"-"}</Text>
+            </TouchableOpacity>
+            <Text>{counter}</Text>
+            <TouchableOpacity onPress={()=>{
+                this.setState({counter:counter+1})
+            }}><Text>{"+"}</Text>
+            </TouchableOpacity>
+        </Fragment>
     }
 
     render() {
@@ -69,6 +85,7 @@ class Home extends React.Component {
                     })}}>
                     <Text>{"Test"}</Text>
                 </Animated.View>
+                {this.renderCounter()}
          </View>
         </ScrollView>
     }
