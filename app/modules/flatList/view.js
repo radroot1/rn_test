@@ -6,6 +6,10 @@ import {
     StyleSheet
 } from 'react-native';
 import { ListItem } from 'react-native-elements';
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import * as actions from 'AwesomeProject/app/AppViewState';
+
 
 class Users extends React.Component {
     state = {
@@ -17,16 +21,19 @@ class Users extends React.Component {
     };
 
     loadUsers = () => {
-        const { users, seed, page } = this.state;
+        const { seed, page } = this.state;
+        const { users } = this.props;
         this.setState({ isLoading: true });
 
         fetch(`https://randomuser.me/api/?seed=${seed}&page=${page}&results=20`)
             .then(res => res.json())
             .then(res => {
-                this.setState({
-                    users: page === 1 ? res.results : [...users, ...res.results],
-                    isRefreshing: false,
-                });
+                const users = page === 1 ? res.results : [...this.props.users, ...res.results];
+                this.props.actions.addUsers(users).then(()=>{
+                    this.setState({
+                        isRefreshing: false,
+                    });
+                })
             })
             .catch(err => {
                 console.error(err);
@@ -55,7 +62,8 @@ class Users extends React.Component {
     };
 
     render() {
-        const { users, isRefreshing } = this.state;
+        const { isRefreshing } = this.state;
+        const { users } = this.props;
 
         return (
             <View style={s.scene}>
@@ -101,4 +109,13 @@ const s = StyleSheet.create({
     }
 });
 
-export default Users;
+export default connect(
+    state => ({
+        users: state['app']['users']
+    }),
+    dispatch => {
+        return {
+            actions: bindActionCreators(actions, dispatch),
+        }
+    }
+)(Users);

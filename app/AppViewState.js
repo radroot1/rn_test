@@ -1,12 +1,8 @@
 export const HANDSHAKE = 'AppState/HANDSHAKE';
-const DISMISS_UPDATE = 'AppState/DISMISS_UPDATE';
-const DISMISS_BASKET_HINT = 'AppState/DISMISS_BASKET_HINT';
-const CHANGE_CONNECTION_TYPE = 'AppState/CHANGE_CONNECTION_TYPE';
-const PENDING = 'AppState/PENDING';
-const REJECTED = 'AppState/REJECTED';
+const ADD_USERS = 'AppState/ADD_USERS';
 
 export const cachedState = {
-
+    users:[]
 };
 
 // Initial state
@@ -17,15 +13,24 @@ const initialState = {
 
 };
 
+// Action creators
+export const addUsers = (users) => async dispatch => {
+    try {
+        dispatch({type: ADD_USERS, users});
+        return users;
+    } catch (error) {
+        return Promise.reject(error);
+    }
+};
+
 
 // Reducer
 export const _state = (state = initialState, action = {}) => {
-    const {type, payload, el, initialHandshakeData, ver} = action;
+    const {type, users} = action;
     switch (type) {
-        case PENDING:
+        case ADD_USERS:
             state = {...state};
-            state['isError'] = false;
-            if (el) state[el + 'IsFetching'] = true;
+            state['users'] = users;
             return state;
 
         default:
