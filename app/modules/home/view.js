@@ -27,7 +27,7 @@ class Home extends React.Component {
     }
 
     render() {
-        return <View>
+        return <View style={{ marginLeft:20, marginTop:20 }}>
             <Text>{"View #1"}</Text>
             <TouchableOpacity onPress={()=>{ this.props.navigation.navigate({
                 routeName: "HomePage2", params:{}
