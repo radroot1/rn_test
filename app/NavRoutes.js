@@ -26,6 +26,7 @@ import HomePage3 from 'AwesomeProject/app/modules/home/view3';
 import TestPage from 'AwesomeProject/app/modules/test/view';
 import FlatlistPage from 'AwesomeProject/app/modules/flatList/view';
 import AnimatePage from 'AwesomeProject/app/modules/animatable/view';
+import AnimatePage2 from 'AwesomeProject/app/modules/animatable2/view';
 
 const TabNavigator = createBottomTabNavigator({
     Home: {
@@ -67,7 +68,7 @@ const TabNavigator = createBottomTabNavigator({
     },
     Home4: {
         screen: createStackNavigator({
-            TestPage
+            AnimatePage2
         }),
         navigationOptions: {
             tabBarLabel: "Test3",
