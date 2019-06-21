@@ -35,7 +35,7 @@ class Home extends React.Component {
 
     renderCounter = () => {
         const { counter } = this.state;
-        return <Fragment>
+        return <View style={{flex:1, flexDirection:"row"}}>
             <TouchableOpacity onPress={()=>{
                 this.setState({counter:counter-1})
             }}>
@@ -46,7 +46,7 @@ class Home extends React.Component {
                 this.setState({counter:counter+1})
             }}><Text>{"+"}</Text>
             </TouchableOpacity>
-        </Fragment>
+        </View>
     }
 
     render() {
