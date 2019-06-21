@@ -18,7 +18,7 @@ class Home extends React.Component {
     static navigationOptions = ({navigation}) => {
         const {params} = navigation.state;
         return {
-            headerTitle: "View #2",
+            headerTitle: "View #3",
         }
     };
 
@@ -28,12 +28,7 @@ class Home extends React.Component {
 
     render() {
         return <View>
-            <Text>{"View #2"}</Text>
-            <TouchableOpacity onPress={()=>{ this.props.navigation.navigate({
-                routeName: "HomePage3", params:{}
-            }) }}>
-                <Text>{"Next view >3"}</Text>
-            </TouchableOpacity>
+            <Text>{"View #3"}</Text>
         </View>
     }
 }

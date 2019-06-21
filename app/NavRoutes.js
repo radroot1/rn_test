@@ -22,6 +22,7 @@ import {
 
 import HomePage from 'AwesomeProject/app/modules/home/view';
 import HomePage2 from 'AwesomeProject/app/modules/home/view2';
+import HomePage3 from 'AwesomeProject/app/modules/home/view3';
 import FlatlistPage from 'AwesomeProject/app/modules/flatList/view';
 
 const TabNavigator = createBottomTabNavigator({
@@ -29,9 +30,10 @@ const TabNavigator = createBottomTabNavigator({
         screen: createStackNavigator({
             HomePage,
             HomePage2,
+            HomePage3,
         }),
         navigationOptions: {
-            tabBarLabel: "Test0",
+            tabBarLabel: "NavTest",
             tabBarIcon: ({focused}) => (
                 <Image source={focused ? c.images.MENU_HOME_ACTIVE : c.images.MENU_HOME} style={g_style.menuIcons}/>
             ),
