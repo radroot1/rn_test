@@ -21,11 +21,14 @@ import {
 } from 'react-navigation';
 
 import HomePage from 'AwesomeProject/app/modules/home/view';
+import HomePage2 from 'AwesomeProject/app/modules/home/view2';
+import FlatlistPage from 'AwesomeProject/app/modules/flatList/view';
 
 const TabNavigator = createBottomTabNavigator({
     Home: {
         screen: createStackNavigator({
             HomePage,
+            HomePage2,
         }),
         navigationOptions: {
             tabBarLabel: "Test0",
@@ -36,10 +39,10 @@ const TabNavigator = createBottomTabNavigator({
     },
     Home2: {
         screen: createStackNavigator({
-            HomePage
+            FlatlistPage
         }),
         navigationOptions: {
-            tabBarLabel: "Test1",
+            tabBarLabel: "Flatlist",
             tabBarIcon: ({focused}) => (
                 <Image source={focused ? c.images.MENU_DOCTOR_ACTIVE : c.images.MENU_DOCTOR}
                        style={g_style.menuIcons}/>

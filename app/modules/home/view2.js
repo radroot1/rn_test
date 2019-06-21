@@ -8,7 +8,7 @@ import {
     Text as TextDefault,
     TouchableOpacity,
     View, Text,
-    FlatList, Touchable
+    FlatList
 } from 'react-native';
 
 class Home extends React.Component {
@@ -18,7 +18,7 @@ class Home extends React.Component {
     static navigationOptions = ({navigation}) => {
         const {params} = navigation.state;
         return {
-            headerTitle: "View #1",
+            headerTitle: "View #2",
         }
     };
 
@@ -28,12 +28,7 @@ class Home extends React.Component {
 
     render() {
         return <View>
-            <Text>{"View #1"}</Text>
-            <TouchableOpacity onPress={()=>{ this.props.navigation.navigate({
-                routeName: "HomePage2", params:{}
-            }) }}>
-                <Text>{"Next view >"}</Text>
-            </TouchableOpacity>
+            <Text>{"View #2"}</Text>
         </View>
     }
 }
