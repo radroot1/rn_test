@@ -23,7 +23,9 @@ import {
 import HomePage from 'AwesomeProject/app/modules/home/view';
 import HomePage2 from 'AwesomeProject/app/modules/home/view2';
 import HomePage3 from 'AwesomeProject/app/modules/home/view3';
+import TestPage from 'AwesomeProject/app/modules/test/view';
 import FlatlistPage from 'AwesomeProject/app/modules/flatList/view';
+import AnimatePage from 'AwesomeProject/app/modules/animatable/view';
 
 const TabNavigator = createBottomTabNavigator({
     Home: {
@@ -53,10 +55,10 @@ const TabNavigator = createBottomTabNavigator({
     },
     Home3: {
         screen: createStackNavigator({
-            HomePage
+            AnimatePage
         }),
         navigationOptions: {
-            tabBarLabel: "Test2",
+            tabBarLabel: "animated",
             tabBarIcon: ({focused}) => (
                 <Image source={focused ? c.images.MENU_CATALOGUE_ACTIVE : c.images.MENU_CATALOGUE}
                        style={g_style.menuIcons}/>
@@ -65,7 +67,7 @@ const TabNavigator = createBottomTabNavigator({
     },
     Home4: {
         screen: createStackNavigator({
-            HomePage
+            TestPage
         }),
         navigationOptions: {
             tabBarLabel: "Test3",
@@ -76,7 +78,7 @@ const TabNavigator = createBottomTabNavigator({
     },
     Home5: {
         screen: createStackNavigator({
-            HomePage
+            TestPage
         }),
         navigationOptions: {
             tabBarLabel: "Test4",
